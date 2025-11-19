@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Settings, Wrench, Search, Cog, Steering, Layers } from "lucide-react";
+import { Settings, Wrench, Search, Cog, Gauge, Layers } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -24,7 +24,7 @@ const Services = () => {
       description: "Hydraulic press-fit installation for stable, long-lasting performance."
     },
     {
-      icon: Steering,
+      icon: Gauge,
       title: "Steering Rack & Driveshaft Repairs",
       description: "Smoother steering with reduced stiffness, jerks, and noise."
     },
