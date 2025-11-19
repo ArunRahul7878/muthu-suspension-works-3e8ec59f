@@ -17,29 +17,29 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    --primary: 215 60% 18%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 195 100% 46%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 20% 96%;
-    --secondary-foreground: 215 25% 15%;
+    --secondary: 0 70% 50%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 210 20% 96%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 25 95% 53%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 0 70% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 215 20% 90%;
     --input: 215 20% 90%;
-    --ring: 215 60% 18%;
+    --ring: 195 100% 46%;
 
     --radius: 0.5rem;
 
-    --hero-gradient-from: 215 60% 20%;
-    --hero-gradient-to: 215 50% 12%;
+    --hero-gradient-from: 195 100% 20%;
+    --hero-gradient-to: 195 80% 12%;
 
     --service-card-bg: 0 0% 98%;
     --service-card-hover: 210 20% 96%;
@@ -55,27 +55,27 @@ All colors MUST be HSL.
     --popover: 215 25% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 25 95% 53%;
-    --primary-foreground: 215 30% 8%;
+    --primary: 195 100% 46%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 25% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 70% 50%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 215 25% 15%;
     --muted-foreground: 215 15% 65%;
 
-    --accent: 25 95% 53%;
-    --accent-foreground: 215 30% 8%;
+    --accent: 0 70% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 215 25% 20%;
     --input: 215 25% 20%;
-    --ring: 25 95% 53%;
+    --ring: 195 100% 46%;
 
-    --hero-gradient-from: 215 40% 12%;
-    --hero-gradient-to: 215 35% 8%;
+    --hero-gradient-from: 195 80% 15%;
+    --hero-gradient-to: 195 60% 10%;
 
     --service-card-bg: 215 25% 12%;
     --service-card-hover: 215 25% 15%;

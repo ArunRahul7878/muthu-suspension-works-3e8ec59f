@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroBackground from "@/assets/hero-background.jpg";
+import mswLogo from "@/assets/msw-logo.png";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -18,21 +19,23 @@ const Hero = () => {
       />
       
       <div className="container relative z-10 mx-auto px-4 py-24 text-center">
+        <img 
+          src={mswLogo} 
+          alt="Muthu Suspension Works" 
+          className="mx-auto mb-8 h-32 w-auto animate-in fade-in slide-in-from-bottom-4 duration-1000"
+        />
         <h1 className="mb-6 text-5xl font-bold text-primary-foreground md:text-7xl animate-in fade-in slide-in-from-bottom-4 duration-1000">
-          Muthu Suspension Works
+          Fixing Suspension Problems the Right Way — For Over 25 Years.
         </h1>
-        <p className="mb-8 text-xl text-primary-foreground/90 md:text-2xl max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
-          Expert Suspension Solutions for Your Vehicle
-        </p>
-        <p className="mb-12 text-lg text-primary-foreground/80 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
-          Professional suspension repair, maintenance, and installation services you can trust
+        <p className="mb-12 text-xl text-primary-foreground/90 md:text-2xl max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
+          Specialized suspension repair and shock absorber reconditioning — honest work, reliable results.
         </p>
         <Button 
           onClick={scrollToContact}
           size="lg" 
           className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500"
         >
-          Get In Touch
+          Book Free Suspension Check
         </Button>
       </div>
     </section>
