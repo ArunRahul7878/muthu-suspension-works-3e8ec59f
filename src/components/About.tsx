@@ -26,13 +26,13 @@ const About = () => {
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-12 md:py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-6">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">
             About Muthu Suspension Works
           </h2>
-          <div className="max-w-3xl mx-auto space-y-4 text-lg text-muted-foreground">
+          <div className="max-w-3xl mx-auto space-y-4 text-base md:text-lg text-muted-foreground">
             <p>
               Muthu Suspension Works is led by <strong>Mr. Elangovan</strong>, a specialist with over 25 years of hands-on experience in suspension repairs and shock absorber reconditioning.
             </p>
@@ -45,21 +45,21 @@ const About = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 max-w-6xl mx-auto">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <Card key={index} className="border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg">
-                <CardContent className="pt-6 text-center">
-                  <div className="mb-4 flex justify-center">
-                    <div className="p-3 bg-primary/10 rounded-lg">
-                      <Icon className="w-8 h-8 text-primary" />
+                <CardContent className="pt-5 md:pt-6 px-3 md:px-6 pb-5 md:pb-6 text-center">
+                  <div className="mb-3 md:mb-4 flex justify-center">
+                    <div className="p-2 md:p-3 bg-primary/10 rounded-lg">
+                      <Icon className="w-6 h-6 md:w-8 md:h-8 text-primary" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-card-foreground mb-2">
+                  <h3 className="text-base md:text-xl font-semibold text-card-foreground mb-1.5 md:mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-muted-foreground text-xs md:text-sm">
                     {feature.description}
                   </p>
                 </CardContent>
