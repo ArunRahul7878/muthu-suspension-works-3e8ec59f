@@ -36,18 +36,18 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-background">
+    <section id="services" className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Our Services
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Comprehensive suspension services tailored to meet your vehicle's needs
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -55,17 +55,17 @@ const Services = () => {
                 key={index} 
                 className="border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg bg-card hover:bg-muted/50"
               >
-                <CardHeader>
-                  <div className="mb-3 flex justify-center">
-                    <div className="p-3 bg-primary/10 rounded-lg">
+                <CardHeader className="p-5 md:p-6">
+                  <div className="mb-2 md:mb-3 flex justify-center">
+                    <div className="p-2.5 md:p-3 bg-primary/10 rounded-lg">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
                   </div>
-                  <CardTitle className="text-xl text-center text-card-foreground">
+                  <CardTitle className="text-lg md:text-xl text-center text-card-foreground">
                     {service.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="px-5 md:px-6 pb-5 md:pb-6">
                   <p className="text-muted-foreground text-center text-sm">
                     {service.description}
                   </p>
