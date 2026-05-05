@@ -14,7 +14,7 @@ const MapSection = () => {
         <div className="max-w-6xl mx-auto">
           <div className="rounded-lg overflow-hidden shadow-lg border border-border">
             <iframe
-              src="https://www.google.com/maps?q=Muthu+Suspension+Works,1,113,Medavakkam+Main+Rd,Vanuvampet,Ullagaram,Chennai,Tamil+Nadu+600091&output=embed"
+              src="https://www.google.com/maps?q=APJ+Abdul+Kalam+Cross+St,Angalamman+Nagar,Nagalkeni,Chromepet,Chennai,Tamil+Nadu+600042&output=embed"
               width="100%"
               height="450"
               style={{ border: 0 }}

@@ -18,8 +18,8 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Location",
-      details: "1, 113, Medavakkam Main Rd, Vanuvampet, Ullagaram, Chennai, Tamil Nadu 600091",
-      link: "https://maps.google.com/?q=1,113,Medavakkam+Main+Rd,Vanuvampet,Ullagaram,Chennai,Tamil+Nadu+600091"
+      details: "APJ Abdul Kalam Cross St, Angalamman Nagar, Nagalkeni, Chromepet, Chennai, Tamil Nadu 600042",
+      link: "https://maps.google.com/?q=APJ+Abdul+Kalam+Cross+St,Angalamman+Nagar,Nagalkeni,Chromepet,Chennai,Tamil+Nadu+600042"
     }
   ];
 
