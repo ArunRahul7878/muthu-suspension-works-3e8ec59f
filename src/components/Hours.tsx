@@ -7,13 +7,13 @@ const WEEKLY_HOURS: Record<
   number,
   { label: string; open: string; close: string } | { label: string; closed: true }
 > = {
-  0: { label: "Sunday", open: "10:00", close: "17:00" },
-  1: { label: "Monday", open: "09:30", close: "20:00" },
-  2: { label: "Tuesday", open: "09:30", close: "20:00" },
-  3: { label: "Wednesday", open: "09:30", close: "20:00" },
-  4: { label: "Thursday", open: "09:30", close: "20:00" },
-  5: { label: "Friday", open: "09:30", close: "20:00" },
-  6: { label: "Saturday", open: "09:30", close: "20:00" },
+  0: { label: "Sunday", open: "09:00", close: "17:00" },
+  1: { label: "Monday", open: "08:30", close: "20:30" },
+  2: { label: "Tuesday", open: "08:30", close: "20:30" },
+  3: { label: "Wednesday", open: "08:30", close: "20:30" },
+  4: { label: "Thursday", open: "08:30", close: "20:30" },
+  5: { label: "Friday", open: "08:30", close: "20:30" },
+  6: { label: "Saturday", open: "08:30", close: "20:30" },
 };
 
 const WEEKDAY_MAP: Record<string, number> = {
