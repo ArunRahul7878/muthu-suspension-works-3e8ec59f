@@ -3,8 +3,9 @@ import heroBackground from "@/assets/hero-background.jpg";
 import mswLogo from "@/assets/msw-logo.png";
 
 const Hero = () => {
-  const whatsappUrl =
-    "https://wa.me/919884326229?partnertoken=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3Nzc5Njg4MjEsInVybCI6Imh0dHBzOi8vd2EubWUvOTE5ODg0MzI2MjI5IiwiaXNzIjoiR29vZ2xlIiwiZXhwIjoxNzc3OTY5MTIxfQ.ez03K9s4-u5EDPkDc1eMXftn3uo9KkDBqqRlQUoCAc3R_V5FFXHbk84hx9V5-urVn88-SsABTurRiV7qAcmphA";
+  const whatsappMessage =
+    "Hi Muthu Suspension Works, I'd like to book a free suspension check for my vehicle. Please let me know the next available slot.";
+  const whatsappUrl = `https://wa.me/919884326229?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden">

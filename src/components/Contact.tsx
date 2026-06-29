@@ -1,8 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Star } from "lucide-react";
 
 const Contact = () => {
+  const whatsappMessage =
+    "Hi Muthu Suspension Works, I'd like to book a free suspension check for my vehicle. Please let me know the next available slot.";
+  const whatsappUrl = `https://wa.me/919884326229?text=${encodeURIComponent(whatsappMessage)}`;
+  const googleBusinessUrl = "https://maps.app.goo.gl/A9gNRsYmEgLYVAEMA";
+
   const contactInfo = [
     {
       icon: Phone,
@@ -36,20 +41,36 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto mb-8 md:mb-10 flex justify-center">
+        <div className="max-w-5xl mx-auto mb-8 md:mb-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
           <Button
             asChild
             size="lg"
             className="bg-accent text-accent-foreground hover:bg-accent/90 w-full sm:w-auto"
           >
             <a
-              href="https://wa.me/919884326229?partnertoken=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3Nzc5Njg4MjEsInVybCI6Imh0dHBzOi8vd2EubWUvOTE5ODg0MzI2MjI5IiwiaXNzIjoiR29vZ2xlIiwiZXhwIjoxNzc3OTY5MTIxfQ.ez03K9s4-u5EDPkDc1eMXftn3uo9KkDBqqRlQUoCAc3R_V5FFXHbk84hx9V5-urVn88-SsABTurRiV7qAcmphA"
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2"
             >
               <MessageCircle className="w-5 h-5" />
               Chat on WhatsApp
+            </a>
+          </Button>
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="w-full sm:w-auto"
+          >
+            <a
+              href={googleBusinessUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2"
+            >
+              <Star className="w-5 h-5" />
+              View on Google — Photos & Reviews
             </a>
           </Button>
         </div>
