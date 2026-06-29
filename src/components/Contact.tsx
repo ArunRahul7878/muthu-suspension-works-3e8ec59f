@@ -18,8 +18,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: "info@muthususpensionworks.com",
-      link: "mailto:info@muthususpensionworks.com"
+      details: "muthususpensionworks@gmail.com",
+      link: "mailto:muthususpensionworks@gmail.com"
     },
     {
       icon: MapPin,
