@@ -1,3 +1,7 @@
+import { Button } from "@/components/ui/button";
+import { Navigation } from "lucide-react";
+import { contact } from "@/config/contact";
+
 const MapSection = () => {
   return (
     <section className="py-12 md:py-20 bg-background">
@@ -23,6 +27,23 @@ const MapSection = () => {
               referrerPolicy="no-referrer-when-downgrade"
               title="Muthu Suspension Works Location"
             ></iframe>
+          </div>
+          <div className="mt-4 md:mt-6 flex justify-center">
+            <Button
+              asChild
+              size="lg"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 w-full sm:w-auto"
+            >
+              <a
+                href={contact.directionsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2"
+              >
+                <Navigation className="w-5 h-5" />
+                Get Directions
+              </a>
+            </Button>
           </div>
         </div>
       </div>
