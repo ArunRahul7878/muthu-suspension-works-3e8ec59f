@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button";
 import heroBackground from "@/assets/hero-background.jpg";
 import mswLogo from "@/assets/msw-logo.png";
+import { contact } from "@/config/contact";
 
 const Hero = () => {
-  const whatsappMessage =
-    "Hi Muthu Suspension Works, I'd like to book a free suspension check for my vehicle. Please let me know the next available slot.";
-  const whatsappUrl = `https://wa.me/919884326229?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = contact.whatsappHref;
 
   return (
     <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden">

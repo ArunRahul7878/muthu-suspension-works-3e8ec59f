@@ -1,25 +1,25 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, MessageCircle, Star } from "lucide-react";
+import { contact } from "@/config/contact";
+import Hours from "@/components/Hours";
 
 const Contact = () => {
-  const whatsappMessage =
-    "Hi Muthu Suspension Works, I'd like to book a free suspension check for my vehicle. Please let me know the next available slot.";
-  const whatsappUrl = `https://wa.me/919884326229?text=${encodeURIComponent(whatsappMessage)}`;
-  const googleBusinessUrl = "https://maps.app.goo.gl/A9gNRsYmEgLYVAEMA";
+  const whatsappUrl = contact.whatsappHref;
+  const googleBusinessUrl = contact.googleListingHref;
 
   const contactInfo = [
     {
       icon: Phone,
       title: "Phone",
-      details: "+91 98843 26229",
-      link: "tel:+919884326229"
+      details: contact.phone,
+      link: contact.phoneHref
     },
     {
       icon: Mail,
       title: "Email",
-      details: "muthususpensionworks@gmail.com",
-      link: "mailto:muthususpensionworks@gmail.com"
+      details: contact.email,
+      link: `mailto:${contact.email}`
     },
     {
       icon: MapPin,
@@ -105,6 +105,10 @@ const Contact = () => {
               </Card>
             );
           })}
+        </div>
+
+        <div className="max-w-5xl mx-auto mb-8 md:mb-12">
+          <Hours />
         </div>
 
         <div className="text-center text-muted-foreground">
