@@ -3,6 +3,7 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Videos from "@/components/Videos";
 import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
 import MapSection from "@/components/MapSection";
 import Contact from "@/components/Contact";
 import Header from "@/components/Header";
@@ -18,6 +19,7 @@ const Index = () => {
         <Services />
         <Videos />
         <Testimonials />
+        <FAQ />
         <MapSection />
         <Contact />
       </main>
