@@ -21,6 +21,7 @@ const Index = () => {
         <Services />
         <Videos />
         <Gallery />
+        <Reels />
         <Testimonials />
         <FAQ />
         <MapSection />
