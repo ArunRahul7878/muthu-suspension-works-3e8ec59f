@@ -65,7 +65,6 @@ const Reels = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary font-semibold hover:underline"
-          >
             Follow us on Instagram @msw_1997
           </a>
         </div>
