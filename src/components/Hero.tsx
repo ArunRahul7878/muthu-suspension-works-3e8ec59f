@@ -18,11 +18,7 @@ const Hero = () => {
       />
       
       <div className="container relative z-10 mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
-        <img 
-          src={mswLogo} 
-          alt="Muthu Suspension Works" 
-          className="mx-auto mb-6 md:mb-8 h-20 md:h-32 w-auto animate-in fade-in slide-in-from-bottom-4 duration-1000"
-        />
+        <img src={mswLogo} alt="Muthu Suspension Works" className="mx-auto mb-6 md:mb-8 h-20 md:h-32 w-auto rounded-xl animate-in fade-in slide-in-from-bottom-4 duration-1000" />
         <h1 className="mb-4 md:mb-6 text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight animate-in fade-in slide-in-from-bottom-4 duration-1000">
           Fixing Suspension Problems the Right Way — For Over 25 Years.
         </h1>
