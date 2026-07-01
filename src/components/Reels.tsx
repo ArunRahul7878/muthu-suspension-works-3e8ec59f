@@ -15,10 +15,7 @@ const Reels = () => {
       if (window.instgrm?.Embeds) window.instgrm.Embeds.process();
     };
     const existing = document.querySelector(`script[src="${SRC}"]`);
-    if (existing) {
-      process();
-      return;
-    }
+    if (existing) { process(); return; }
     const s = document.createElement("script");
     s.src = SRC;
     s.async = true;
@@ -31,12 +28,14 @@ const Reels = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">From Our Workshop</h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">Watch our latest work on Instagram</p>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">Swipe through our latest work on Instagram</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4">
           {REELS.map((url) => (
-            <blockquote key={url} className="instagram-media" data-instgrm-permalink={`${url}?utm_source=ig_embed`} data-instgrm-version="14" style={{ background: "#FFF", border: 0, borderRadius: 3, boxShadow: "0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15)", margin: 0, maxWidth: 540, minWidth: 326, width: "100%" }} />
+            <div key={url} className="snap-center shrink-0 w-[340px]">
+              <blockquote className="instagram-media" data-instgrm-permalink={`${url}?utm_source=ig_embed`} data-instgrm-version="14" style={{ background: "#FFF", border: 0, borderRadius: 3, boxShadow: "0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15)", margin: 0, maxWidth: "100%", minWidth: 326, width: "100%" }} />
+            </div>
           ))}
         </div>
 
