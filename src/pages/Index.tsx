@@ -9,6 +9,7 @@ import MapSection from "@/components/MapSection";
 import Contact from "@/components/Contact";
 import Header from "@/components/Header";
 import MobileContactBar from "@/components/MobileContactBar";
+import Reels from "@/components/Reels";
 
 const Index = () => {
   return (
