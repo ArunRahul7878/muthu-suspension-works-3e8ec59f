@@ -40,7 +40,7 @@ const Reels = () => {
         </div>
 
         <div className="text-center mt-8">
-          <a href="https://www.instagram.com/msw_1997" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">Follow us on Instagram @msw_1997</a>
+          <a href="https://www.instagram.com/msw__1997" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">Follow us on Instagram @msw__1997</a>
         </div>
       </div>
     </section>
