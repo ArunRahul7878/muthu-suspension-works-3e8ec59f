@@ -38,7 +38,7 @@ const Header = () => {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2 shrink-0">
           <a href="#top" onClick={scrollTop} className="flex items-center gap-2 shrink-0" aria-label="Muthu Suspension Works — back to top">
-            <img src={mswLogo} alt="" className="h-9 w-auto" />
+            <img src={mswLogo} alt="" className="h-9 w-auto rounded-md" />
             <span className="font-bold text-sm sm:text-base text-foreground leading-tight hidden sm:inline">Muthu Suspension Works</span>
           </a>
           <span className={cn("inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold shrink-0", status.isOpen ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800")}>
