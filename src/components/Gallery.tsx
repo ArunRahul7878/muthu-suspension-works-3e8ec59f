@@ -3,25 +3,31 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Auto-loads every image in src/assets/gallery/
 // Names sort alphabetically — prefix 01-, 02-, ... to control order.
-const modules = import.meta.glob(
+// Thumbnails: small webp for the horizontal scroller (fast to load).
+// Full: original-resolution webp for the lightbox (crisp, still much smaller than JPEG).
+const thumbModules = import.meta.glob(
   "../assets/gallery/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}",
-  { eager: true }
+  { eager: true, query: { w: "700", format: "webp", quality: "72" }, import: "default" }
+);
+const fullModules = import.meta.glob(
+  "../assets/gallery/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}",
+  { eager: true, query: { format: "webp", quality: "82" }, import: "default" }
 );
 
-const images: string[] = Object.keys(modules)
-  .sort()
-  .map((key) => (modules[key] as { default: string }).default);
+const keys = Object.keys(thumbModules).sort();
+const thumbs: string[] = keys.map((k) => thumbModules[k] as string);
+const fulls: string[] = keys.map((k) => fullModules[k] as string);
 
 const Gallery = () => {
   const [active, setActive] = useState<number | null>(null);
 
   const close = useCallback(() => setActive(null), []);
   const prev = useCallback(
-    () => setActive((i) => (i === null ? i : (i - 1 + images.length) % images.length)),
+    () => setActive((i) => (i === null ? i : (i - 1 + thumbs.length) % thumbs.length)),
     []
   );
   const next = useCallback(
-    () => setActive((i) => (i === null ? i : (i + 1) % images.length)),
+    () => setActive((i) => (i === null ? i : (i + 1) % thumbs.length)),
     []
   );
 
@@ -36,7 +42,7 @@ const Gallery = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, [active, close, prev, next]);
 
-  if (images.length === 0) return null;
+  if (thumbs.length === 0) return null;
 
   return (
     <section id="gallery" className="py-12 md:py-20 scroll-mt-24">
@@ -49,7 +55,7 @@ const Gallery = () => {
         </div>
 
         <div className="flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4">
-          {images.map((src, i) => (
+          {thumbs.map((src, i) => (
             <button
               key={i}
               onClick={() => setActive(i)}
@@ -60,6 +66,7 @@ const Gallery = () => {
                 src={src}
                 alt={`Muthu Suspension Works workshop photo ${i + 1}`}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </button>
@@ -75,7 +82,7 @@ const Gallery = () => {
           <button onClick={close} className="absolute top-4 right-4 text-white/80 hover:text-white p-2" aria-label="Close">
             <X className="w-7 h-7" />
           </button>
-          {images.length > 1 && (
+          {thumbs.length > 1 && (
             <>
               <button onClick={(e) => { e.stopPropagation(); prev(); }} className="absolute left-2 md:left-6 text-white/80 hover:text-white p-2" aria-label="Previous photo">
                 <ChevronLeft className="w-8 h-8" />
@@ -86,7 +93,7 @@ const Gallery = () => {
             </>
           )}
           <img
-            src={images[active]}
+            src={fulls[active]}
             alt={`Muthu Suspension Works photo ${active + 1}`}
             className="max-h-[85vh] max-w-full object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}
