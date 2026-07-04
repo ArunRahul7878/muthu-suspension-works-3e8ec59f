@@ -42,18 +42,18 @@ const Gallery = () => {
     <section id="gallery" className="py-12 md:py-20 scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Work</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Workshop</h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             A look inside the workshop and the suspension jobs we deliver
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+        <div className="flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4">
           {images.map((src, i) => (
             <button
               key={i}
               onClick={() => setActive(i)}
-              className="group relative overflow-hidden rounded-lg aspect-square focus:outline-none focus:ring-2 focus:ring-primary"
+              className="group relative overflow-hidden rounded-lg snap-center shrink-0 w-[260px] md:w-[340px] aspect-square focus:outline-none focus:ring-2 focus:ring-primary"
               aria-label={`Open photo ${i + 1}`}
             >
               <img
