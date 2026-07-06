@@ -42,6 +42,20 @@ const Gallery = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, [active, close, prev, next]);
 
+  // Preload neighbouring full-res images so left/right navigation feels instant.
+  useEffect(() => {
+    if (active === null) return;
+    const neighbours = [
+      (active + 1) % fulls.length,
+      (active - 1 + fulls.length) % fulls.length,
+    ];
+    neighbours.forEach((idx) => {
+      const img = new Image();
+      img.decoding = "async";
+      img.src = fulls[idx];
+    });
+  }, [active]);
+
   if (thumbs.length === 0) return null;
 
   return (
