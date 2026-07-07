@@ -1,5 +1,6 @@
 import { Play } from "lucide-react";
 import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type Video = {
   id: string;
@@ -53,6 +54,13 @@ const Videos = () => {
     return arr;
   }, [sort]);
 
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Snap the horizontal row back to the leftmost card on every sort change
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ left: 0, behavior: "smooth" });
+  }, [sort]);
+
   return (
     <section id="featured" className="py-12 md:py-20 bg-background scroll-mt-24">
       <div className="container mx-auto px-4">
@@ -90,7 +98,7 @@ const Videos = () => {
         </div>
 
         {/* Mobile: horizontal snap scroll. Desktop: grid. */}
-        <div className="md:hidden -mx-4 px-4 overflow-x-auto snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div ref={scrollRef} className="md:hidden -mx-4 px-4 overflow-x-auto snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <div className="flex gap-4 pb-2">
             {sortedVideos.map((video) => {
               const isPlaying = playing[video.id];
