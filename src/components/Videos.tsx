@@ -14,6 +14,12 @@ const videos = [
     description:
       "Muthu Suspension Works featured in a Birla × Thanthi TV segment.",
   },
+  {
+    id: "0e2vESDfffw",
+    title: "MSW × Rider Machine — Inside Our Suspension Service",
+    description:
+      "A collaboration with Rider Machine walking through how we service and rework suspensions at MSW.",
+  },
 ];
 
 const Videos = () => {
@@ -31,7 +37,79 @@ const Videos = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+        {/* Mobile: horizontal snap scroll. Desktop: grid. */}
+        <div className="md:hidden -mx-4 px-4 overflow-x-auto snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex gap-4 pb-2">
+            {videos.map((video) => {
+              const isPlaying = playing[video.id];
+              return (
+                <div
+                  key={video.id}
+                  className="group shrink-0 w-[85%] snap-center rounded-lg overflow-hidden border border-border bg-card shadow-sm"
+                >
+                  <div className="relative aspect-video overflow-hidden bg-muted">
+                    {isPlaying ? (
+                      <iframe
+                        src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0&modestbranding=1`}
+                        title={video.title}
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                        allowFullScreen
+                        className="absolute inset-0 w-full h-full border-0"
+                      />
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setPlaying((prev) => ({ ...prev, [video.id]: true }))
+                        }
+                        aria-label={`Play ${video.title}`}
+                        className="absolute inset-0 w-full h-full cursor-pointer"
+                      >
+                        <img
+                          src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                          alt={video.title}
+                          loading="lazy"
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                          <div className="w-16 h-16 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg">
+                            <Play className="w-8 h-8 fill-current ml-1" />
+                          </div>
+                        </div>
+                      </button>
+                    )}
+                  </div>
+                  <div className="p-4 flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <h3 className="text-base font-semibold text-card-foreground mb-1 line-clamp-2">
+                        {video.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2">
+                        {video.description}
+                      </p>
+                    </div>
+                    <a
+                      href={`https://youtu.be/${video.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Watch ${video.title} on YouTube`}
+                      title="Watch on YouTube"
+                      className="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full bg-muted hover:bg-accent hover:text-accent-foreground transition-colors"
+                    >
+                      <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" aria-hidden="true">
+                        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <p className="text-xs text-muted-foreground text-center mt-2">Swipe to see more →</p>
+        </div>
+
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           {videos.map((video) => {
             const isPlaying = playing[video.id];
             return (
