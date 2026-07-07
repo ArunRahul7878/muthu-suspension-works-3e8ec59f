@@ -1,29 +1,57 @@
 import { Play } from "lucide-react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
-const videos = [
+type Video = {
+  id: string;
+  title: string;
+  description: string;
+  publishedAt: string; // ISO date
+  views: number; // approx views for ranking
+};
+
+// Update `views` / `publishedAt` here as numbers change.
+const videos: Video[] = [
   {
     id: "9-nlddyWvHI",
     title: "MSW × Birla's Parvai — How We Work",
     description:
       "A collaboration with Birla's Parvai explaining our approach to suspension repair.",
+    publishedAt: "2023-01-01",
+    views: 500000,
   },
   {
     id: "Jjo_Dyxm-Bs",
     title: "Featured on Thanthi TV with Birla",
     description:
       "Muthu Suspension Works featured in a Birla × Thanthi TV segment.",
+    publishedAt: "2024-06-01",
+    views: 150000,
   },
   {
     id: "0e2vESDfffw",
     title: "MSW × Rider Machine — Inside Our Suspension Service",
     description:
       "A collaboration with Rider Machine walking through how we service and rework suspensions at MSW.",
+    publishedAt: "2026-06-01",
+    views: 20000,
   },
 ];
 
+type SortKey = "top" | "latest";
+
 const Videos = () => {
   const [playing, setPlaying] = useState<Record<string, boolean>>({});
+  const [sort, setSort] = useState<SortKey>("top");
+
+  const sortedVideos = useMemo(() => {
+    const arr = [...videos];
+    if (sort === "latest") {
+      arr.sort((a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt));
+    } else {
+      arr.sort((a, b) => b.views - a.views);
+    }
+    return arr;
+  }, [sort]);
 
   return (
     <section id="featured" className="py-12 md:py-20 bg-background scroll-mt-24">
@@ -32,15 +60,39 @@ const Videos = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             As Featured
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
             See our work in action — collaborations and media features.
           </p>
+          <div
+            role="tablist"
+            aria-label="Sort videos"
+            className="inline-flex items-center gap-1 p-1 rounded-full border border-border bg-muted/50"
+          >
+            {([
+              { key: "top", label: "Top Rated" },
+              { key: "latest", label: "Latest" },
+            ] as { key: SortKey; label: string }[]).map((t) => (
+              <button
+                key={t.key}
+                role="tab"
+                aria-selected={sort === t.key}
+                onClick={() => setSort(t.key)}
+                className={`px-4 py-1.5 text-sm font-medium rounded-full transition-colors ${
+                  sort === t.key
+                    ? "bg-accent text-accent-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Mobile: horizontal snap scroll. Desktop: grid. */}
         <div className="md:hidden -mx-4 px-4 overflow-x-auto snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <div className="flex gap-4 pb-2">
-            {videos.map((video) => {
+            {sortedVideos.map((video) => {
               const isPlaying = playing[video.id];
               return (
                 <div
@@ -110,7 +162,7 @@ const Videos = () => {
         </div>
 
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-          {videos.map((video) => {
+          {sortedVideos.map((video) => {
             const isPlaying = playing[video.id];
             return (
               <div
