@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Link } from "react-router-dom";
 import { Menu, Phone, MessageCircle, Navigation } from "lucide-react";
 import mswLogo from "@/assets/msw-logo.png";
 import { contact } from "@/config/contact";
@@ -13,7 +14,6 @@ const navLinks = [
   { label: "Reels", href: "#reels" },
   { label: "Reviews", href: "#reviews" },
   { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
 ];
 
 const Header = () => {
@@ -52,6 +52,7 @@ const Header = () => {
           {navLinks.map((l) => (
             <a key={l.href} href={l.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">{l.label}</a>
           ))}
+          <Link to="/contact-us" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">Contact</Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
@@ -71,6 +72,9 @@ const Header = () => {
                     <a href={l.href} className="px-3 py-3 rounded-md text-base font-medium text-foreground hover:bg-muted">{l.label}</a>
                   </SheetClose>
                 ))}
+                <SheetClose asChild>
+                  <Link to="/contact-us" className="px-3 py-3 rounded-md text-base font-medium text-foreground hover:bg-muted">Contact</Link>
+                </SheetClose>
                 <SheetClose asChild>
                   <a href={contact.directionsHref} target="_blank" rel="noopener noreferrer" className="px-3 py-3 rounded-md text-base font-medium text-foreground hover:bg-muted inline-flex items-center gap-2"><Navigation className="w-4 h-4" />Directions</a>
                 </SheetClose>

@@ -1,5 +1,4 @@
 import { Play } from "lucide-react";
-import { useMemo, useState } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 type Video = {
