@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 
 const REELS = [
+  "https://www.instagram.com/reel/Dao12qAzIaq/",
   "https://www.instagram.com/reel/DX_thk8TC7_/",
   "https://www.instagram.com/reel/DYHqTQ7zzxo/",
   "https://www.instagram.com/reel/DYUYivgzJea/",
   "https://www.instagram.com/reel/DYZiyLDz0XS/",
 ];
+
 
 const Reels = () => {
   useEffect(() => {
