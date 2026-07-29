@@ -4,7 +4,7 @@ export type DayHours =
   | { label: string; closed: true };
 
 export const WEEKLY_HOURS: Record<number, DayHours> = {
-  0: { label: "Sunday", open: "09:00", close: "17:00" },
+  0: { label: "Sunday", closed: true },
   1: { label: "Monday", open: "08:30", close: "20:30" },
   2: { label: "Tuesday", open: "08:30", close: "20:30" },
   3: { label: "Wednesday", open: "08:30", close: "20:30" },
